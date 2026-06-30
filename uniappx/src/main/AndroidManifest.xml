@@ -5,6 +5,6 @@
         <!--   value 替换成你应用的appid    -->
         <meta-data
             android:name="DCLOUD_UNI_APPID"
-            android:value="__UNI__2A7E9F3" />
+            android:value="__UNI__02D379B" />
     </application>
 </manifest>

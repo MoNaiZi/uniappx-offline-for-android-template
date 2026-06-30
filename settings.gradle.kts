@@ -38,3 +38,4 @@ rootProject.name = "uniappx-offline-for-android"
 include(":app")
 include(":uniappx")
 include(":kux-request")
+include(":scan")

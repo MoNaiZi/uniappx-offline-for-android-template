@@ -1,0 +1,46 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    id 'io.dcloud.uts.kotlin'
+}
+
+android {
+    namespace 'com.example.scan'
+    compileSdk {
+        version = release(34)
+    }
+
+    defaultConfig {
+        applicationId "com.example.scan"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+    compileOnly fileTree(include: ['*.aar'], dir: '../app/libs')
+    compileOnly fileTree(include: ['*.aar'], dir: './libs')
+    compileOnly "com.alibaba:fastjson:1.2.83"
+    compileOnly "androidx.core:core-ktx:1.10.1"
+    compileOnly 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.8'
+    compileOnly 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.8'
+    compileOnly fileTree(include: ['*.aar'], dir: '../uniappx/libs')
+}
