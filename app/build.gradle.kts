@@ -72,8 +72,10 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
-    implementation(fileTree(mapOf("include" to listOf("*.aar"), "dir" to "../libs")))
+    implementation(fileTree(mapOf("include" to listOf("*.aar", "*.jar"), "dir" to "../libs")))
     implementation(project(":uniappx"))
+    implementation(project(":scan"))
+    implementation(project(":ysapi"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
