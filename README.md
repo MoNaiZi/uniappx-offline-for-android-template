@@ -1,4 +1,4 @@
-# uniappx-offline-for-android-template
+# -template
 
 uni-app x 离线打包 Android 模板项目。
 

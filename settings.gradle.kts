@@ -34,7 +34,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "uniappx-offline-for-android"
+rootProject.name = "方鼎医疗平板终端"
 include(":app")
 include(":uniappx")
 include(":kux-request")
