@@ -609,6 +609,13 @@ val GenPagesOutpatientPaymentConfirmPaymentClass = CreateVueComponent(GenPagesOu
     return GenPagesOutpatientPaymentConfirmPayment(instance, renderer)
 }
 )
+val GenUniModulesXQrcodeComponentsXQrcodeXQrcodeClass = CreateVueComponent(GenUniModulesXQrcodeComponentsXQrcodeXQrcode::class.java, fun(): VueComponentOptions {
+    return VueComponentOptions(type = "component", name = "", inheritAttrs = GenUniModulesXQrcodeComponentsXQrcodeXQrcode.inheritAttrs, inject = GenUniModulesXQrcodeComponentsXQrcodeXQrcode.inject, props = GenUniModulesXQrcodeComponentsXQrcodeXQrcode.props, propsNeedCastKeys = GenUniModulesXQrcodeComponentsXQrcodeXQrcode.propsNeedCastKeys, emits = GenUniModulesXQrcodeComponentsXQrcodeXQrcode.emits, components = GenUniModulesXQrcodeComponentsXQrcodeXQrcode.components, styles = GenUniModulesXQrcodeComponentsXQrcodeXQrcode.styles)
+}
+, fun(instance, renderer): GenUniModulesXQrcodeComponentsXQrcodeXQrcode {
+    return GenUniModulesXQrcodeComponentsXQrcodeXQrcode(instance)
+}
+)
 val GenPagesConfigIndexClass = CreateVueComponent(GenPagesConfigIndex::class.java, fun(): VueComponentOptions {
     return VueComponentOptions(type = "page", name = "", inheritAttrs = GenPagesConfigIndex.inheritAttrs, inject = GenPagesConfigIndex.inject, props = GenPagesConfigIndex.props, propsNeedCastKeys = GenPagesConfigIndex.propsNeedCastKeys, emits = GenPagesConfigIndex.emits, components = GenPagesConfigIndex.components, styles = GenPagesConfigIndex.styles, setup = fun(props: ComponentPublicInstance): Any? {
         return GenPagesConfigIndex.setup(props as GenPagesConfigIndex)

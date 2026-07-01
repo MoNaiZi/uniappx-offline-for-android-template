@@ -1,0 +1,4 @@
+{
+  "minSdkVersion": "21",
+  "dependencies": ["com.google.zxing:core:3.4.1"]
+}

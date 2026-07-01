@@ -106,6 +106,7 @@ dependencies {
     implementation(project(":uniappx"))
     implementation(project(":scan"))
     implementation(project(":ysapi"))
+    implementation(project(":x-qrcode"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

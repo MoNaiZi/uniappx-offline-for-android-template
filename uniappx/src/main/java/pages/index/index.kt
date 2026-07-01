@@ -99,7 +99,7 @@ open class GenPagesIndexIndex : BasePage {
                         _cE("image", _uM("mode" to "aspectFit", "class" to "img", "src" to default__9)),
                         _cE("image", _uM("onLongpress" to toConfig, "mode" to "aspectFit", "class" to "img", "src" to default__10), null, 32),
                         _cE("text", _uM("class" to "text"), "终端号：11111"),
-                        _cE("text", _uM("class" to "text"), "版本号：2222")
+                        _cE("text", _uM("class" to "text"), "版本号：3333")
                     ))
                 ))
             }
