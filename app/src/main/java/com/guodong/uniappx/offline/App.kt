@@ -1,5 +1,7 @@
 package com.guodong.uniappx.offline
 
+import android.content.ComponentName
+import android.content.pm.PackageManager
 import android.util.Log
 import io.dcloud.uniapp.UniApplication
 import io.dcloud.uniapp.UniSDKEngine
@@ -11,6 +13,19 @@ class App : UniApplication() {
     private val TAG = "App"
 
     override fun onCreate() {
+        // 💡 核心魔法代码：在冷启动的第一时间，让系统包管理器直接禁用这个死掉的 Provider 组件
+        // 这能完美阻止它因为 ClassNotFoundException 而导致 App 刚启动就“屡次停止运行”
+        try {
+            val provider = ComponentName(this.packageName, "com.bytedance.sdk.openadsdk.TTFileProvider")
+            this.packageManager.setComponentEnabledSetting(
+                provider,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP
+            )
+        } catch (e: Exception) {
+            Log.d(TAG, "穿山甲 Provider 移除失败或已被彻底清理: ${e.message}")
+        }
+
         super.onCreate()
         register()
     }

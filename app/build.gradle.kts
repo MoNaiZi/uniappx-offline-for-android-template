@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.guodong.uniappx.offline"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.guodong.uniappx.offline"
@@ -19,19 +19,49 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "UTSRegisterComponents", "\"[{\\\"name\\\":\\\"video\\\",\\\"class\\\":\\\"uts.sdk.modules.DCloudUniVideo.VideoComponent\\\"}]\"")
+
+        // 💡 显式指定 uni-app 推荐的主流 CPU 架构，防止其他不完整的 SDK 导致打包失败
+        ndk {
+            abiFilters.addAll(setOf("armeabi-v7a", "arm64-v8a"))
+        }
+
+        // ➕ 核心修复：在这里显式注入个推/个验所需的所有占位符参数
+        // 如果你不打算用推送，直接留着下面的 "123456" 即可骗过编译器顺利通过编译。
+        manifestPlaceholders.putAll(
+            mapOf(
+                "GETUI_APPID"        to "123456",
+                "PUSH_APPID"         to "123456",
+                "GY_APP_ID"          to "123456",
+                "GETUI_APPKEY"       to "123456",
+                "GETUI_APPSECRET"    to "123456",
+                "GT_INSTALL_CHANNEL" to "io.dcloud" // 个推渠道占位符
+            )
+        )
     }
 
     buildFeatures {
         buildConfig = true
     }
 
+    // 💡 解决 SO 库同名冲突问题
+    packaging {
+        jniLibs {
+            pickFirsts.add("**/*.so")
+        }
+    }
+
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
+
+            // 💡 如果想在日常 Debug 调试时彻底消除最开始那个 D8 警告，可以取消下面三行的注释
+            // isMinifyEnabled = true
+            // proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
 
         release {
-            isMinifyEnabled = false
+            // 💡 将其改为 true 开启混淆，这样线上打包时 proguard-rules.pro 里的规则才会真正生效
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
