@@ -11,3 +11,5 @@ local.properties
 /app/release
 /uniappx/src/main/assets/apps
 /uniappx/src/main/java
+/ysapi/build
+/scan/build
