@@ -75,7 +75,7 @@ open class SystemHelper {
     public open fun hideNavBar() {
         if (this.mMyManager != null) {
             this.mMyManager!!.hideNavBar(true)
-            this.mMyManager!!.hideStatusBar(true)
+            this.mMyManager!!.hideStatusBar(false)
             this.mMyManager!!.setSlideShowNavBar(false)
             this.mMyManager!!.setSlideShowNotificationBar(false)
         }
@@ -83,7 +83,7 @@ open class SystemHelper {
     public open fun showNavBar() {
         if (this.mMyManager != null) {
             this.mMyManager!!.hideNavBar(false)
-            this.mMyManager!!.hideStatusBar(false)
+            this.mMyManager!!.hideStatusBar(true)
             this.mMyManager!!.setSlideShowNavBar(true)
             this.mMyManager!!.setSlideShowNotificationBar(true)
         }

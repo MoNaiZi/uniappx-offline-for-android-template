@@ -60,8 +60,7 @@ android {
         }
 
         release {
-            // 💡 将其改为 true 开启混淆，这样线上打包时 proguard-rules.pro 里的规则才会真正生效
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
